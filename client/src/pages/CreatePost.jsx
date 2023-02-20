@@ -16,8 +16,32 @@ const CreatePost = () => {
     const [generatingImg, setGeneratingImg] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const generateImage = () => {
-        
+    const generateImage = async () => {
+        if (form.prompt) {
+            try {
+                setGeneratingImg(true);
+                //generating post request to server
+                const response = await fetch('http://localhost:8080/api/v1/dalle', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ prompt: form.prompt }),
+                });
+
+                //save response to variable
+                const data = await response.json();
+
+                //render out image (with image source) by changing form data with data that comes from openai api
+                setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
+            } catch (error) {
+                alert(error);
+            } finally {
+                setGeneratingImg(false);
+            }
+        } else {
+            alert("Please enter a prompt.");
+        };
     }
 
     const handleSubmit = () => {
@@ -64,7 +88,7 @@ const CreatePost = () => {
 
                     <div className='relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center'>
                         {form.photo ? (
-                            <img src={photo} alt={form.prompt} className="w-full h-full object-contain" />
+                            <img src={form.photo} alt={form.prompt} className="w-full h-full object-contain" />
                         ) : (
                             <img
                                 src={preview}
