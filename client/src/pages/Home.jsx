@@ -48,13 +48,16 @@ const Home = () => {
         fetchPosts();
     }, []);
 
+    //searching function
     const handleSearchChange = (e) => {
         clearTimeout(searchTimeout);
         setSearchText(e.target.value);
 
+        //filtering out results that matches search
         setSearchTimeout(
             setTimeout(() => {
                 const searchResult = allPosts.filter((item) => item.name.toLowerCase().includes(searchText.toLowerCase()) || item.prompt.toLowerCase().includes(searchText.toLowerCase()));
+                //set results to state
                 setSearchedResults(searchResult);
             }, 500),
         );
@@ -85,12 +88,14 @@ const Home = () => {
                     </div>
                 ) : (
                     <>
+                        {/* if searchText is active (the variable is set), render out this paragraph with search-keyword */}
                         {searchText && (
                             <h2 className="font-medium text-[#666e75] text-xl mb-3">
-                                Showing Resuls for <span className="text-[#222328]">{searchText}</span>:
+                                Showing Results for <span className="text-[#222328]">{searchText}</span>:
                             </h2>
                         )}
                         <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3">
+                            {/* if search is active (that means searchText is set), render out cards that matches keyword */}
                             {searchText ? (
                                 <RenderCards
                                     data={searchedResults}
