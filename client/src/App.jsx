@@ -11,7 +11,7 @@ const App = () => {
           <img src={logo} alt="logo" className='w-28 object-contain' />
         </Link>
         <Link to="/create-post"
-          className='font-inter font-medium bg-[#6469ff] text-white px-4 py-2 rounded-md'>
+          className='font-inter font-medium bg-[#008A93] text-white px-4 py-2 rounded-md'>
           Create
         </Link>
       </header>
