@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, FormField, Loader } from '../components';
+import Typed from "typed.js";
 
 const RenderCards = ({ data, title }) => {
     if (data?.length > 0) {
@@ -21,6 +22,21 @@ const Home = () => {
     const [searchText, setSearchText] = useState('');
     const [searchTimeout, setSearchTimeout] = useState(null);
     const [searchedResults, setSearchedResults] = useState(null);
+
+    const el = useRef(null);
+
+    useEffect(() => {
+        const typed = new Typed(el.current, {
+            strings: ["special", "beautiful", "awesome"],
+            startDelay: 300,
+            typeSpeed: 100,
+            backDelay: 1000,
+            backSpeed: 150,
+            smartBackspace: false,
+            showCursor: false,
+            loop: true,
+        });
+    }, [])
 
     const fetchPosts = async () => {
         setLoading(true);
@@ -66,10 +82,10 @@ const Home = () => {
     return (
         <>
             <section className="mx-auto min-h-[60vh] flex justify-center align-center flex-col bg-slate-200 dark:bg-slate-900">
-                <div>
-                    <h1 className="font-extrabold text-[#222328] dark:text-slate-100 text-[64px] text-center">Let's create something special!</h1>
-                    <p className="my-10 text-[#666e75] text-[18px] max-w-[500px] md:max-w-full text-center">Welcome to the world of AI generated images! Shall we begin?</p>
-                    <Link to="/createpost" className='font-inter m-auto block max-w-full md:max-w-xs text-center font-bold bg-[#272727] dark:bg-slate-700 text-white dark:text-slate-100 p-5 rounded-md'>LET'S GO!</Link>
+                <div className='px-[20rem]'>
+                    <h1 className="font-extrabold text-[#222328] dark:text-slate-100 text-[64px] text-left">Let's create something <span ref={el} className="text-teal-800"></span></h1>
+                    <p className="my-10 text-[#666e75] text-[18px] max-w-[500px] md:max-w-full text-left">Welcome to the world of AI generated images! Shall we begin?</p>
+                    <Link to="/create-post" className='font-inter block max-w-full md:max-w-xs text-center font-bold bg-[#272727] dark:bg-slate-700 text-white dark:text-slate-100 p-5 rounded-md'>LET'S GO!</Link>
                 </div>
             </section>
             <section className="max-w-7xl mx-auto mt-20 pb-20">
