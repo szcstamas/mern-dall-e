@@ -1,9 +1,11 @@
 import download from './download.png';
-import logo from './fantacity-logo-long.svg';
+import logoLight from './fantacity-logo-long.svg';
+import logoDark from './fantacity-logo-white.svg';
 import preview from './preview.png';
 
 export {
   download,
-  logo,
+  logoLight,
   preview,
+  logoDark
 };

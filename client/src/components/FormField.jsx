@@ -4,11 +4,11 @@ const FormField = ({ labelName, type, name, placeholder, value, handleChange, is
     return (
         <div>
             <div className='flex items-center gap-2 mb-2'>
-                <label htmlFor={name} className="block text-sm font-medium text-gray-900">
+                <label htmlFor={name} className="block text-sm font-medium text-gray-900 dark:text-slate-100">
                     {labelName}
                 </label>
                 {isSurpriseMe && (
-                    <button type="button" onClick={handleSurpriseMe} className="font-semibold text-xs bg-[#ECECF1] py-1 px-2 rounded-[5px] text-black">Surprise me</button>
+                    <button type="button" onClick={handleSurpriseMe} className="font-semibold text-xs bg-[#ECECF1] dark:bg-slate-900 dark:text-slate-100 py-2 px-3 rounded-[5px] text-black">Surprise me</button>
                 )}
             </div>
             <input
@@ -19,7 +19,7 @@ const FormField = ({ labelName, type, name, placeholder, value, handleChange, is
                 value={value}
                 onChange={handleChange}
                 required
-                className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full p-3'
+                className='bg-gray-200 dark:bg-slate-900 text-gray-900 text-sm rounded-lg focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full p-3'
             />
         </div>
     )
