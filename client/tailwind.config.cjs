@@ -13,7 +13,7 @@ module.exports = {
       },
       animation: {
         wiggle: 'wiggle 1s ease-in-out infinite',
-        fadeInOut: 'fadeInOut 5s ease-in-out infinite',
+        fadeInOut: 'fadeInOut 2s ease-in-out infinite',
       },
       keyframes: {
         wiggle: {
