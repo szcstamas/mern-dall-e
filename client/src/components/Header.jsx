@@ -37,12 +37,16 @@ const Header = () => {
             <Link to="/">
                 <img src={userTheme === "dark" ? logoDark : logo} alt="logo" className='w-28 object-contain' />
             </Link>
-            <div className='flex justify-between items-center gap-5'>
+            <div className='flex justify-between items-center gap-10'>
                 <Link to="/create-post"
-                    className='font-inter font-medium bg-[#008A93] text-white px-4 py-2 rounded-md'>
+                    className='font-inter text-slate-900 dark:text-white'>
                     Create
                 </Link>
-                <button className='font-inter font-medium bg-[#272727] dark:bg-slate-500 text-white dark:text-slate-100 px-4 py-2 rounded-md' onClick={themeSwitch}>Night mode</button>
+                <Link to="/prompt-tips"
+                    className='font-inter text-slate-900 dark:text-white'>
+                    Prompt tips
+                </Link>
+                <button className='font-inter font-medium bg-[#272727] dark:bg-slate-500 text-white dark:text-slate-900 px-4 py-2 rounded-md' onClick={themeSwitch}>Night mode</button>
             </div>
         </header>
     )

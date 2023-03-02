@@ -2,10 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, FormField, Loader } from '../components';
 import Typed from "typed.js";
-import hero1 from "../assets/hero-1.png";
-import hero2 from "../assets/hero-2.png";
-import hero3 from "../assets/hero-3.png";
-import hero4 from "../assets/hero-4.png";
+import { hero1, hero2, hero3, hero4 } from "../assets";
 
 const RenderCards = ({ data, title }) => {
     if (data?.length > 0) {
@@ -20,6 +17,14 @@ const RenderCards = ({ data, title }) => {
 };
 
 const Home = () => {
+    const heroImages = [
+        hero1,
+        hero2,
+        hero3,
+        hero4
+    ]
+    const [heroImageIndex, setHeroImageIndex] = useState(1);
+    const [heroImage, setHeroImage] = useState(hero1);
     const [loading, setLoading] = useState(false);
     const [allPosts, setAllPosts] = useState(null);
 
@@ -31,16 +36,26 @@ const Home = () => {
 
     useEffect(() => {
         const typed = new Typed(el.current, {
-            strings: ["special", "beautiful", "awesome"],
-            startDelay: 300,
+            strings: ["beautiful", "strong", "awesome", "special"],
+            startDelay: 0,
             typeSpeed: 100,
-            backDelay: 1000,
+            backDelay: 2000,
             backSpeed: 150,
             smartBackspace: false,
             showCursor: false,
             loop: true,
         });
     }, [])
+
+    //changing images with useEffect - restarting of interval occurs when heroImageIndex is changed 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            heroImageIndex >= heroImages.length - 1 ? setHeroImageIndex(0) : setHeroImageIndex(prevIndex => prevIndex + 1);
+            console.log(heroImageIndex);
+            setHeroImage(heroImages[heroImageIndex]);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [heroImageIndex])
 
     const fetchPosts = async () => {
         setLoading(true);
@@ -85,47 +100,20 @@ const Home = () => {
 
     return (
         <>
-            <div
-                id="carouselExampleSlidesOnly"
-                class="relative"
-                data-te-carousel-init
-                data-te-carousel-slide>
-                <div
-                    class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
-                    <div
-                        class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                        data-te-carousel-item
-                        data-te-carousel-active>
-                        <img
-                            src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
-                            class="block w-full"
-                            alt="Wild Landscape" />
-                    </div>
-                    <div
-                        class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                        data-te-carousel-item>
-                        <img
-                            src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
-                            class="block w-full"
-                            alt="Camera" />
-                    </div>
-                    <div
-                        class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                        data-te-carousel-item>
-                        <img
-                            src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
-                            class="block w-full"
-                            alt="Exotic Fruits" />
-                    </div>
-                </div>
-            </div>
             <section className="relative overflow-hidden isolate mx-auto min-h-[80vh] flex justify-center align-center flex-col bg-slate-200 dark:bg-slate-900">
                 <div className="min-w-[90rem] max-w-[90rem] mx-auto">
+                    <p className='uppercase text-slate-400 tracking-widest'>Provided by DALL-E</p>
                     <h1 className="font-extrabold text-[#222328] dark:text-slate-100 text-[64px] text-left">Create something <span ref={el} className="text-teal-800"></span></h1>
                     <p className="my-10 dark:text-slate-50 text-[#666e75] text-[18px] max-w-[500px] md:max-w-full text-left">Welcome to the world of AI generated images! Shall we begin?</p>
                     <Link to="/create-post" className='font-inter block max-w-full md:max-w-xs text-center font-bold bg-[#272727] dark:bg-teal-800 text-white dark:text-slate-100 p-5 rounded-md tracking-wider'>LET'S GO!</Link>
                 </div>
-                <div className="absolute -z-10 w-[60%] rounded-r-[20%] h-[200%] bg-gradient-radial dark:from-black dark:to-slate-800  from-white via-white to-slate-400 dark:via-slate-900 blur-[70px]">
+                <div className='absolute -z-10 w-full h-full clip-your-needful-style bg-slate-50 dark:bg-slate-900'></div>
+                <div
+                    className="absolute -z-20 w-full h-full bg-no-repeat bg-right animate-fadeInOut"
+                    style={{
+                        backgroundImage: `url(${heroImage})`
+                    }}
+                >
                 </div>
             </section>
             <section className="max-w-7xl mx-auto mt-20 pb-20">
@@ -148,7 +136,7 @@ const Home = () => {
                 <div className="mt-10">
                     {loading ? (
                         <div className="flex justify-center items-center">
-                            <Loader />
+                            <Loader bgColor="black" />
                         </div>
                     ) : (
                         <>

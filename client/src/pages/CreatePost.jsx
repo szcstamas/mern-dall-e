@@ -81,7 +81,7 @@ const CreatePost = () => {
         <section className="max-w-7xl mx-auto py-10 md:py-20 px-5 xl:px-0">
             <div>
                 <h1 className="font-extrabold text-[#222328] dark:text-slate-100 text-[32px]">Create</h1>
-                <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">Generate an imaginative image through DALL-E AI and share it with the community</p>
+                <p className="mt-2 text-[#666e75] dark:text-slate-50 text-[14px] max-w-[500px]">Generate an imaginative image through DALL-E AI and share it with the community</p>
             </div>
 
             <form className="mt-16 max-w-3xl md:max-w-full flex flex-col" onSubmit={handleSubmit}>
@@ -111,7 +111,7 @@ const CreatePost = () => {
                                 <button
                                     type="button"
                                     onClick={generateImage}
-                                    className=" text-white bg-[#008A93] font-medium rounded-md text-sm w-full xs:w-auto p-5 text-center"
+                                    className=" text-white bg-[#008A93] font-medium rounded-md text-sm w-auto xs:w-full p-5 text-center"
                                 >
                                     {generatingImg ? 'Generating...' : 'Generate'}
                                 </button>
@@ -121,7 +121,7 @@ const CreatePost = () => {
                             <p className="mt-2 text-[#666e75] text-[14px]">Once you have created the image you want, you can share it with others in the community</p>
                             <button
                                 type="submit"
-                                className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full xs:w-auto p-5 text-center"
+                                className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-auto xs:w-full p-5 text-center"
                             >
                                 {loading ? 'Sharing...' : 'Share with the Community'}
                             </button>
@@ -146,7 +146,7 @@ const CreatePost = () => {
 
                             {generatingImg && (
                                 <div className="absolute inset-0 z-0 flex justify-center items-center bg-[rgba(0,0,0,0.5)] rounded-lg">
-                                    <Loader />
+                                    <Loader bgColor="white" />
                                 </div>
                             )}
                         </div>
