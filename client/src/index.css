@@ -29,8 +29,8 @@
     }
 
     @keyframes slideRow {
-      0% { opacity: 0; transform: translate(-20%, -19%) rotate(21deg); }
-      10% { opacity: 1; transform: translate(-20%, -19%) rotate(21deg); }
+      0% { opacity: 0; transform: translate(2300%, -99.5%) rotate(21deg); }
+      1% { opacity: 1; transform: translate(2300%, -99.5%) rotate(21deg); }
       20% { opacity: 1; transform: translate(-2100%, 53.5%) rotate(21deg); }
       100% { opacity: 0; transform: translate(-2100%, 53.5%) rotate(21deg); }
     }
