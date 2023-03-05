@@ -85,8 +85,8 @@ const CreatePost = () => {
             </div>
 
             <form className="mt-16 max-w-3xl md:max-w-full flex flex-col" onSubmit={handleSubmit}>
-                <div className='flex w-full flex-col md:flex-row gap-12'>
-                    <div className="flex flex-col w-full md:w-1/2 justify-between">
+                <div className='flex w-full flex-col md:flex-row gap-12 justify-between'>
+                    <div className="flex flex-col w-full md:w-[65%] justify-between">
                         <div className='flex flex-col gap-10'>
                             <FormField
                                 labelName="Your Name"
@@ -128,7 +128,7 @@ const CreatePost = () => {
                         </div>
                     </div>
 
-                    <div className='w-full md:w-1/2'>
+                    <div className='w-full md:w-[35%]'>
                         <div className="relative bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-50 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-3 h-full flex justify-center items-center">
                             {form.photo ? (
                                 <img

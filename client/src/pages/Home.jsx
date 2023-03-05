@@ -40,7 +40,7 @@ const Home = () => {
     useEffect(() => {
         //targeting bg img div
         const div = bgDiv.current;
-        //targeting txt img span
+        //targeting txt span
         const txt = txtSpan.current;
 
         //starting interval
@@ -56,8 +56,10 @@ const Home = () => {
             //clearing animation-class
             setTimeout(() => {
                 div.classList.remove("animate-fadeInOut");
-                txt.classList.remove("animate-fadeText");
             }, 1000)
+            setTimeout(() => {
+                txt.classList.remove("animate-fadeText");
+            }, 5000)
         }, 5000);
         //clearing setInterval
         return () => clearInterval(interval);
@@ -109,11 +111,11 @@ const Home = () => {
             <section className="relative overflow-hidden isolate mx-auto min-h-[80vh] flex justify-center align-center flex-col bg-slate-200 dark:bg-slate-900">
                 <div className="min-w-[90rem] max-w-[50%] mr-auto ml-32">
                     <p className='uppercase text-slate-400 tracking-widest'>Provided by DALL-E</p>
-                    <h1 className="font-extrabold text-[#222328] dark:text-slate-100 text-[64px] text-left">Create something <span className="changeTextWrapper text-teal-800 underline"
+                    <h1 className="flex justify-start gap-5 font-extrabold text-[#222328] dark:text-slate-100 text-[64px] text-left overflow-hidden">Create something <span className="changeTextWrapper text-teal-800 underline transition-all block animate-fadeText opacity-0"
                         ref={txtSpan}
                     >{heroTextHomepage}</span>
                     </h1>
-                    <p className="mt-10 mb-8 dark:text-slate-50 text-[#666e75] text-[18px] max-w-[500px] md:max-w-full text-left">Welcome to the world of AI generated images! Shall we begin?</p>
+                    <p className="mt-10 mb-6 dark:text-slate-50 text-[#666e75] text-[18px] max-w-[500px] md:max-w-full text-left">Welcome to the world of AI generated images! Shall we begin?</p>
                     <Link to="/create-post" className='font-inter block max-w-full md:max-w-xs text-center font-bold bg-[#272727] dark:bg-teal-800 text-white dark:text-slate-100 p-5 rounded-md tracking-wider'>LET'S GO!</Link>
                 </div>
                 <div className='absolute -z-10 w-full h-full clip-your-needful-style bg-slate-50 dark:bg-slate-900'></div>
