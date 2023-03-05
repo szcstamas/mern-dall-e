@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { logoLight } from "../assets";
-import { logoDark } from "../assets";
+import { logoLight, logoDark, moonIcon, sunIcon } from "../assets";
 
 const Header = () => {
-
     const userTheme = localStorage.getItem("theme");
     const [logo, setLogo] = useState(logoLight);
+    const [icon, setIcon] = useState(moonIcon)
 
     const themeCheck = () => {
         if (userTheme === "dark") {
             document.documentElement.classList.add("dark");
             setLogo(logoDark);
+            setIcon(sunIcon);
             return;
         }
     }
@@ -21,13 +21,18 @@ const Header = () => {
     }, [logo])
 
     const themeSwitch = () => {
+        // storing switchedIcon as a new variable to render state effectively
+        const switchedIcon = document.documentElement.classList.contains("dark") ? moonIcon : sunIcon;
+
         if (document.documentElement.classList.contains("dark")) {
             document.documentElement.classList.remove("dark");
             setLogo(logoLight);
+            setIcon(switchedIcon);
             localStorage.setItem("theme", "light");
             return;
         }
         setLogo(logoDark);
+        setIcon(switchedIcon);
         document.documentElement.classList.add("dark");
         localStorage.setItem("theme", "dark");
     }
@@ -46,7 +51,9 @@ const Header = () => {
                     className='font-inter text-slate-900 dark:text-white'>
                     Prompt tips
                 </Link>
-                <button className='font-inter font-medium bg-[#272727] dark:bg-slate-500 text-white dark:text-slate-900 px-4 py-2 rounded-md' onClick={themeSwitch}>Night mode</button>
+                <button className='font-inter font-medium bg-teal-400 dark:bg-slate-700 text-white dark:text-slate-900 px-4 py-2 rounded-md' onClick={themeSwitch}>
+                    <img src={icon} alt="dark mode toggle" />
+                </button>
             </div>
         </header>
     )
