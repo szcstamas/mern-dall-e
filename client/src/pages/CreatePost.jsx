@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { preview } from '../assets';
+import { preview, downloadIcon, generateIcon, shareIcon } from '../assets';
 import { getRandomPrompt } from '../utils';
 import { FormField, Loader } from '../components';
 
@@ -78,7 +78,7 @@ const CreatePost = () => {
     };
 
     return (
-        <section className="max-w-7xl mx-auto py-10 md:py-20 px-5 xl:px-0">
+        <section className="max-w-7xl mx-auto py-10 md:pt-20 md:pb-32 px-5 xl:px-0">
             <div>
                 <h1 className="font-extrabold text-[#222328] dark:text-slate-100 text-[32px]">Create</h1>
                 <p className="mt-2 text-[#666e75] dark:text-slate-50 text-[14px] max-w-[500px]">Generate an imaginative image through DALL-E AI and share it with the community</p>
@@ -113,8 +113,17 @@ const CreatePost = () => {
                                     onClick={generateImage}
                                     className=" text-white bg-[#008A93] font-medium rounded-md text-sm w-auto xs:w-full p-5 text-center"
                                 >
-                                    {generatingImg ? 'Generating...' : 'Generate'}
+                                    {generatingImg ? 'Generating...' : 'Generate'} <img src={generateIcon} alt="generate image" className='inline ml-3' />
                                 </button>
+                                {form.photo &&
+                                    <a
+                                        href={form.photo}
+                                        download={`downloaded-${form.photo.substring(0, 40)}`}
+                                        className=" text-white block bg-teal-800 font-medium rounded-md text-sm w-auto xs:w-full p-5 text-center"
+                                    >
+                                        Download <img src={downloadIcon} alt="download image" className='inline ml-3' />
+                                    </a>
+                                }
                             </div>
                         </div>
                         <div className="mt-5">
@@ -123,7 +132,7 @@ const CreatePost = () => {
                                 type="submit"
                                 className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-auto xs:w-full p-5 text-center"
                             >
-                                {loading ? 'Sharing...' : 'Share with the Community'}
+                                {loading ? 'Sharing...' : 'Share with the Community'} <img src={shareIcon} alt="share image" className='inline ml-3' />
                             </button>
                         </div>
                     </div>
