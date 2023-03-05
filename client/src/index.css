@@ -23,9 +23,9 @@
       transform: translate(-20%, -19%) rotate(21deg);
       animation: slideRow 5s ease-in-out infinite;
     }
-    .changeTextWrapper::after {
+    .changeTextWrapper {
       content: "";
-      animation: fadeText 20s infinite 0s;
+      /* animation: fadeText 20s infinite 0s; */
     }
 
     @keyframes slideRow {
@@ -35,7 +35,7 @@
       100% { opacity: 0; transform: translate(-2100%, 53.5%) rotate(21deg); }
     }
 
-    @keyframes fadeText {
+    /* @keyframes fadeText {
       0% { opacity: 0; }
       2% { opacity: 1; content: 'beautiful'; }
       23% { opacity: 1; content: 'beautiful'; }
@@ -49,7 +49,7 @@
       77% { opacity: 1; content: 'unique'; }
       98% { opacity: 1; content: 'unique'; }
       100% { opacity: 0; }
-    }
+    } */
  }
 
 @media screen and (min-width: 480px) {

@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, FormField, Loader } from '../components';
 import { hero1, hero2, hero3, hero4 } from "../assets";
+import { heroText } from "../constants/heroText";
 
 const RenderCards = ({ data, title }) => {
     if (data?.length > 0) {
@@ -21,9 +22,10 @@ const Home = () => {
         hero2,
         hero3,
         hero4
-    ]
-    const [heroImageIndex, setHeroImageIndex] = useState(1);
+    ];
+    const [heroIndex, setHeroIndex] = useState(1);
     const [heroImage, setHeroImage] = useState(hero1);
+    const [heroTextHomepage, setHeroTextHomepage] = useState(heroText[0]);
     const [loading, setLoading] = useState(false);
     const [allPosts, setAllPosts] = useState(null);
 
@@ -32,27 +34,34 @@ const Home = () => {
     const [searchedResults, setSearchedResults] = useState(null);
 
     const bgDiv = useRef();
-    const el = useRef(null);
+    const txtSpan = useRef();
 
-    //changing images with useEffect - restarting of interval occurs when heroImageIndex is changed 
+    //changing images with useEffect - restarting of interval occurs when heroIndex is changed 
     useEffect(() => {
         //targeting bg img div
         const div = bgDiv.current;
+        //targeting txt img span
+        const txt = txtSpan.current;
 
         //starting interval
         const interval = setInterval(() => {
-            //looping between heroImages array (start from 0 when reached full length)
-            heroImageIndex >= heroImages.length - 1 ? setHeroImageIndex(0) : setHeroImageIndex(prevIndex => prevIndex + 1);
+            //looping between heroImages array (start from 0 index when reaches full length)
+            heroIndex >= heroImages.length - 1 ? setHeroIndex(0) : setHeroIndex(prevIndex => prevIndex + 1);
             //adding animation-class
             div.classList.add("animate-fadeInOut");
+            txt.classList.add("animate-fadeText");
             //setting heroImage to current
-            setHeroImage(heroImages[heroImageIndex]);
+            setHeroImage(heroImages[heroIndex]);
+            setHeroTextHomepage(heroText[heroIndex]);
             //clearing animation-class
-            setTimeout(() => { div.classList.remove("animate-fadeInOut") }, 1000)
+            setTimeout(() => {
+                div.classList.remove("animate-fadeInOut");
+                txt.classList.remove("animate-fadeText");
+            }, 1000)
         }, 5000);
         //clearing setInterval
         return () => clearInterval(interval);
-    }, [heroImageIndex])
+    }, [heroIndex])
 
     const fetchPosts = async () => {
         setLoading(true);
@@ -91,7 +100,7 @@ const Home = () => {
                 const searchResult = allPosts.filter((item) => item.name.toLowerCase().includes(searchText.toLowerCase()) || item.prompt.toLowerCase().includes(searchText.toLowerCase()));
                 //set results to state
                 setSearchedResults(searchResult);
-            }, 500),
+            }, 1000),
         );
     };
 
@@ -100,7 +109,9 @@ const Home = () => {
             <section className="relative overflow-hidden isolate mx-auto min-h-[80vh] flex justify-center align-center flex-col bg-slate-200 dark:bg-slate-900">
                 <div className="min-w-[90rem] max-w-[50%] mr-auto ml-32">
                     <p className='uppercase text-slate-400 tracking-widest'>Provided by DALL-E</p>
-                    <h1 className="font-extrabold text-[#222328] dark:text-slate-100 text-[64px] text-left">Create something <span className="changeTextWrapper text-teal-800 underline"></span>
+                    <h1 className="font-extrabold text-[#222328] dark:text-slate-100 text-[64px] text-left">Create something <span className="changeTextWrapper text-teal-800 underline"
+                        ref={txtSpan}
+                    >{heroTextHomepage}</span>
                     </h1>
                     <p className="mt-10 mb-8 dark:text-slate-50 text-[#666e75] text-[18px] max-w-[500px] md:max-w-full text-left">Welcome to the world of AI generated images! Shall we begin?</p>
                     <Link to="/create-post" className='font-inter block max-w-full md:max-w-xs text-center font-bold bg-[#272727] dark:bg-teal-800 text-white dark:text-slate-100 p-5 rounded-md tracking-wider'>LET'S GO!</Link>

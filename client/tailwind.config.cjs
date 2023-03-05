@@ -13,7 +13,8 @@ module.exports = {
       },
       animation: {
         wiggle: 'wiggle 1s ease-in-out infinite',
-        fadeInOut: 'fadeInOut 2s ease-in-out infinite',
+        fadeInOut: 'fadeInOut 1s ease-in-out infinite',
+        fadeText: "fadeText 1s ease-in-out infinite"
       },
       keyframes: {
         wiggle: {
@@ -22,9 +23,22 @@ module.exports = {
         },
         fadeInOut: {
           '0%': { opacity: '0' },
-          '20%': { opacity: '1' },
-          '80%': { opacity: '1' },
-          '100%': {  opacity: '0' },
+          '100%': { opacity: '1' }
+        },
+        fadeText: {
+          "0%" : { opacity: 0 },
+          "2%" : { opacity: 1, content: 'beautiful' },
+          "23%" : { opacity: 1, content: 'beautiful' },
+          "25%" : { opacity: 0 },
+          "27%" : { opacity: 1, content: 'legendary' },
+          "48%" : { opacity: 1, content: 'legendary' },
+          "50%" : { opacity: 0 },
+          "52%" : { opacity: 1, content: 'creative' },
+          "73%" : { opacity: 1, content: 'creative' },
+          "75%" : { opacity: 0 },
+          "77%" : { opacity: 1, content: 'unique' },
+          "98%" : { opacity: 1, content: 'unique' },
+          "100%" : { opacity: 0 },
         }
       }
     },
