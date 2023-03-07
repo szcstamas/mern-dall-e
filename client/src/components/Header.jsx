@@ -38,23 +38,29 @@ const Header = () => {
     }
 
     return (
-        <header className='fixed z-10 w-full backdrop-blur-lg flex justify-between items-center bg-[#ffffffa3] dark:bg-[#0f172aab] sm:px-8 px-4 py-4 border-b border-b-[#e6ebf4]'>
-            <Link to="/">
-                <img src={userTheme === "dark" ? logoDark : logo} alt="logo" className='w-28 object-contain' />
-            </Link>
-            <div className='flex justify-between items-center gap-10'>
-                <Link to="/create-post"
-                    className='font-inter text-slate-900 dark:text-white'>
-                    Create
+        <header className='fixed z-10 w-full bg-cover backdrop-blur-sm flex justify-between items-center bg-[#ffffffbb] dark:bg-[#0f172aab] border-b border-b-[#e6ebf4]'>
+            <nav className='w-full flex justify-between items-center sm:px-32 px-4 py-4 '>
+                <Link to="/">
+                    <img src={userTheme === "dark" ? logoDark : logo} alt="logo" className='w-28 object-contain' />
                 </Link>
-                <Link to="/prompt-tips"
-                    className='font-inter text-slate-900 dark:text-white'>
-                    Prompt tips
-                </Link>
-                <button className='font-inter font-medium bg-teal-400 dark:bg-teal-900 text-white dark:text-slate-900 px-4 py-2 rounded-md' onClick={themeSwitch}>
-                    <img src={icon} alt="dark mode toggle" />
-                </button>
-            </div>
+                <div className='flex justify-between items-center gap-10'>
+                    <Link to="/create-post"
+                        className='flex items-start gap-1 font-inter text-slate-900 dark:text-white'>
+                        Create
+                    </Link>
+                    <Link to="/prompt-tips"
+                        className='font-inter text-slate-900 dark:text-white'>
+                        Prompt tips
+                    </Link>
+                    <Link to="https://openai.com/" target="_blank"
+                        className='font-inter text-slate-900 dark:text-white'>
+                        OpenAI
+                    </Link>
+                    <button className='font-inter font-medium bg-teal-400 dark:bg-teal-900 text-white dark:text-slate-900 px-4 py-2 rounded-md' onClick={themeSwitch}>
+                        <img src={icon} alt="dark mode toggle" />
+                    </button>
+                </div>
+            </nav>
         </header>
     )
 }

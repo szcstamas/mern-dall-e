@@ -67,6 +67,7 @@
   display: flex;
   align-items: center;
   height: 50px;
+  color: #01ac96;
 }
 
 .wrapper span {

@@ -1,6 +1,7 @@
 import download from './download.png';
 import downloadIcon from './download-image.svg';
 import generateIcon from './generate-image.svg';
+import starIcon from './star-image.svg';
 import shareIcon from './share-image.svg';
 import logoLight from './fantacity-logo-long.svg';
 import logoDark from './fantacity-logo-white.svg';
@@ -17,6 +18,7 @@ export {
   downloadIcon,
   generateIcon,
   shareIcon,
+  starIcon,
   logoLight,
   preview,
   logoDark,
