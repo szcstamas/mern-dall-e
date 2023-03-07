@@ -38,7 +38,7 @@ const Header = () => {
     }
 
     return (
-        <header className='w-full flex justify-between items-center bg-white dark:bg-slate-900 sm:px-8 px-4 py-4 border-b border-b-[#e6ebf4]'>
+        <header className='fixed z-10 w-full backdrop-blur-lg flex justify-between items-center bg-[#ffffffa3] dark:bg-[#0f172aab] sm:px-8 px-4 py-4 border-b border-b-[#e6ebf4]'>
             <Link to="/">
                 <img src={userTheme === "dark" ? logoDark : logo} alt="logo" className='w-28 object-contain' />
             </Link>

@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    font-family: 'Inter', sans-serif;
-}
-
 @layer utilities {
 
     .clip-your-needful-style {
@@ -61,53 +57,57 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    font-family: 'Inter', sans-serif;
   }
+
+/* loading animation */
   
-  .wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.wrapper span {
+  --d: 10px;
+  display: inline-block;
+  margin-inline: max(2px, calc(var(--d) / 5));
+  width: var(--d);
+  height: var(--d);
+  border-radius: calc(var(--d) / 2);
+  -webkit-animation: scale-up-down 300ms var(--delay) linear alternate infinite;
+          animation: scale-up-down 300ms var(--delay) linear alternate infinite;
+}
+
+.wrapper span:nth-child(1) {
+  --delay: calc(-100ms * (6 - 1));
+}
+
+.wrapper span:nth-child(2) {
+  --delay: calc(-100ms * (6 - 2));
+}
+
+.wrapper span:nth-child(3) {
+  --delay: calc(-100ms * (6 - 3));
+}
+
+.wrapper span:nth-child(4) {
+  --delay: calc(-100ms * (6 - 4));
+}
+
+.wrapper  span:nth-child(5) {
+  --delay: calc(-100ms * (6 - 5));
+}
+
+@-webkit-keyframes scale-up-down {
+  to {
+    height: calc(var(--d) * 4);
   }
-  
-  .wrapper span {
-    --d: 10px;
-    display: inline-block;
-    margin-inline: max(2px, calc(var(--d) / 5));
-    width: var(--d);
-    height: var(--d);
-    border-radius: calc(var(--d) / 2);
-    -webkit-animation: scale-up-down 300ms var(--delay) linear alternate infinite;
-            animation: scale-up-down 300ms var(--delay) linear alternate infinite;
+}
+
+@keyframes scale-up-down {
+  to {
+    height: calc(var(--d) * 4);
   }
-  
-  .wrapper span:nth-child(1) {
-    --delay: calc(-100ms * (6 - 1));
-  }
-  
-  .wrapper span:nth-child(2) {
-    --delay: calc(-100ms * (6 - 2));
-  }
-  
-  .wrapper span:nth-child(3) {
-    --delay: calc(-100ms * (6 - 3));
-  }
-  
-  .wrapper span:nth-child(4) {
-    --delay: calc(-100ms * (6 - 4));
-  }
-  
-  .wrapper  span:nth-child(5) {
-    --delay: calc(-100ms * (6 - 5));
-  }
-  
-  @-webkit-keyframes scale-up-down {
-    to {
-      height: calc(var(--d) * 4);
-    }
-  }
-  
-  @keyframes scale-up-down {
-    to {
-      height: calc(var(--d) * 4);
-    }
-  }
+}
