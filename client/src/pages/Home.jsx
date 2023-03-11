@@ -108,7 +108,7 @@ const Home = () => {
 
     return (
         <>
-            <section className="relative overflow-hidden isolate mx-auto min-h-[80vh] flex justify-center align-center flex-col bg-slate-200 dark:bg-slate-900">
+            <section className="relative overflow-hidden isolate mx-auto min-h-[100vh] flex justify-center align-center flex-col bg-slate-200 dark:bg-slate-900">
                 <div className="min-w-[90rem] max-w-[50%] mr-auto ml-32">
                     <p className='uppercase text-slate-400 tracking-widest'>Provided by DALL-E</p>
                     <h1 className="flex justify-start gap-5 font-extrabold text-[#222328] dark:text-slate-100 text-[64px] text-left overflow-hidden">Create something <span className="changeTextWrapper text-teal-700 underline transition-all block animate-fadeText opacity-0"

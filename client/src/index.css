@@ -11,20 +11,19 @@
     .clip-your-needful-style::after {
       content: '';
       position: absolute;
-      height: 200%;
-      width: 20px;
+      height: 20px;
+      width: 100%;
+      bottom: 0;
+      left: 0;
       background-color: #008A93;
-      left: 55%;
       opacity: 0;
-      transform: translate(-20%, -19%) rotate(21deg);
       animation: slideRow 5s ease-in-out infinite;
     }
 
     @keyframes slideRow {
-      0% { opacity: 0; transform: translate(2300%, -99.5%) rotate(21deg); }
-      1% { opacity: 1; transform: translate(2300%, -99.5%) rotate(21deg); }
-      20% { opacity: 1; transform: translate(-2100%, 53.5%) rotate(21deg); }
-      100% { opacity: 0; transform: translate(-2100%, 53.5%) rotate(21deg); }
+      0% { opacity: 1; width: 0%; transform: translateX(0%); }
+      30% { opacity: 0; width: 100%; transform: translateX(200%); }
+      100% { opacity: 1; width: 0%; transform: translateX(0%); }
     }
  }
 
