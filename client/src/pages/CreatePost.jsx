@@ -119,7 +119,7 @@ const CreatePost = () => {
                                     <a
                                         href={form.photo}
                                         download={`downloaded-${form.photo.substring(0, 40)}`}
-                                        className=" text-white block bg-teal-800 font-medium rounded-md text-sm w-auto xs:w-full p-5 text-center"
+                                        className=" text-white block bg-primary font-medium rounded-md text-sm w-auto xs:w-full p-5 text-center"
                                     >
                                         Download <img src={downloadIcon} alt="download image" className='inline ml-3' />
                                     </a>

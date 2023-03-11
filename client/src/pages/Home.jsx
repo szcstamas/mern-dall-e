@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { Card, FormField, Loader } from '../components';
 import { hero1, hero2, hero3, hero4 } from "../assets";
 import { heroText } from "../constants/heroText";
+import { benefits } from '../constants/benefits';
+import { engineerImages } from '../assets/engineer';
 
 const RenderCards = ({ data, title }) => {
     if (data?.length > 0) {
@@ -111,12 +113,18 @@ const Home = () => {
             <section className="relative overflow-hidden isolate mx-auto min-h-[100vh] flex justify-center align-center flex-col bg-slate-200 dark:bg-slate-900">
                 <div className="min-w-[90rem] max-w-[50%] mr-auto ml-32">
                     <p className='uppercase text-slate-400 tracking-widest'>Provided by DALL-E</p>
-                    <h1 className="flex justify-start gap-5 font-extrabold text-[#222328] dark:text-slate-100 text-[64px] text-left overflow-hidden">Create something <span className="changeTextWrapper text-teal-700 underline transition-all block animate-fadeText opacity-0"
+                    <h1 className="flex justify-start gap-5 font-extrabold text-[#222328] dark:text-slate-100 text-[64px] text-left overflow-hidden">Create something <span className="changeTextWrapper text-[#4357FF] underline transition-all block animate-fadeText opacity-0"
                         ref={txtSpan}
                     >{heroTextHomepage}</span>
                     </h1>
-                    <p className="mt-10 mb-6 dark:text-slate-50 text-[#666e75] text-[18px] max-w-[500px] md:max-w-full text-left">Welcome to the world of AI generated images! Shall we begin?</p>
-                    <Link to="/create-post" className='font-inter block max-w-full md:max-w-[14rem] text-center font-bold bg-[#272727] dark:bg-teal-800 text-white dark:text-slate-100 p-5 rounded-md tracking-wider'>LET'S GO!</Link>
+                    <p className="my-10 dark:text-slate-50 text-[#666e75] text-[18px] max-w-[500px] md:max-w-full text-left">Welcome to the world of AI generated images! Shall we begin?</p>
+                    <div className='flex gap-8 items-center'>
+                        <Link to="/create-post" className='font-inter block max-w-full md:max-w-[14rem] text-center font-bold bg-[#4357FF] dark:bg-primary text-white dark:text-slate-100 py-4 px-10 rounded-full tracking-wider'>Explore</Link>
+                        <Link to="https://openai.com/research/dall-e" target="_blank" className='font-inter block max-w-full md:max-w-[14rem] text-center tracking-wider text-slate-700 bg-[#efefef] dark:bg-slate-800 text-white dark:text-slate-100 py-4 px-10 rounded-full'>About DALL-E</Link>
+                    </div>
+                    <div>
+
+                    </div>
                 </div>
                 <div className='absolute -z-10 w-full h-full clip-your-needful-style bg-slate-50 dark:bg-slate-900'></div>
                 <div
@@ -128,6 +136,46 @@ const Home = () => {
                 >
                 </div>
             </section>
+
+            <section className="p-20 bg-slate-900 text-slate-100 dark:border-b-2 dark:border-t-2">
+                <div className="max-w-7xl m-auto">
+                    <div className='w-100 max-w-7xl flex justify-between gap-24'>
+                        {benefits.map((benefit, index) => {
+                            index++;
+                            return (
+                                <div className='flex flex-1 flex-col flex-wrap gap-9 relative border-2 rounded-2xl p-10'>
+                                    <span className='absolute left-3 top-3 text-slate-300 opacity-50'>0{index}</span>
+                                    <img className='m-auto w-10 h-10 block' src={benefit.img} alt={benefit.name} />
+                                    <div>
+                                        <h4 className='text-center font-bold text-2xl mb-2'>{benefit.name}</h4>
+                                        <p className='text-center text-slate-400 text-sm'>{benefit.desc}</p>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            <section className='bg-slate-900 text-slate-100 min-h-[60vh] engineer-section'>
+                <div className="min-w-[90rem] max-w-7xl m-auto pt-20 pb-36 flex justify-between gap-10">
+                    <div className='w-1/2 relative'>
+                        {engineerImages.map((image) => {
+                            return (
+                                <div className='engineer-image-box isolate absolute w-[300px] h-[400px] rounded-lg'>
+                                    <img className='w-full h-full relative object-cover z-[1] rounded-2xl' src={image} alt={image} />
+                                    <div className='white-background absolute w-[105%] h-[105%] rounded-3xl bg-gradient-to-b from-transparent via-transparent to-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-[50.5%] z-[0]'></div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div className='w-1/2'>
+                        <h1 className='text-primary text-4xl font-bold mb-10'>Be a professional prompt engineer!</h1>
+                        <p className='text-slate-100 max-w-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, eveniet! Eum deleniti magnam modi praesentium? Ipsam a incidunt vero placeat.</p>
+                    </div>
+                </div>
+            </section>
+
             <section className="max-w-7xl mx-auto mt-20 pb-20">
                 <div>
                     <h2 className="font-extrabold text-[#222328] dark:text-slate-100 text-[32px]">The Community Showcase</h2>

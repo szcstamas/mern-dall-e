@@ -4,6 +4,21 @@
 
 @layer utilities {
 
+    .engineer-image-box:nth-child(2) {
+      right: 0;
+      top: 50px;
+    }
+
+    .engineer-image-box:nth-child(3) {
+      left: 50%;
+      top: 80%;
+      transform: translate(-50%, -50%);
+    }
+
+    .engineer-section {
+      clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0% 50%);
+    }
+
     .clip-your-needful-style {
         clip-path: polygon(0 0, 65% 0, 50% 101%, 0 100%);
         position: absolute;
@@ -15,7 +30,7 @@
       width: 100%;
       bottom: 0;
       left: 0;
-      background-color: #008A93;
+      background-color: #4357FF;
       opacity: 0;
       animation: slideRow 5s ease-in-out infinite;
     }
@@ -41,7 +56,7 @@
 
 *::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: #008A93;
+    background-color: #4357FF;
 }
 
 .prompt::-webkit-scrollbar {

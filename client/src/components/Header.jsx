@@ -56,7 +56,7 @@ const Header = () => {
                         className='font-inter text-slate-900 dark:text-white'>
                         OpenAI
                     </Link>
-                    <button className='font-inter font-medium bg-teal-400 dark:bg-teal-900 text-white dark:text-slate-900 px-4 py-2 rounded-md' onClick={themeSwitch}>
+                    <button className='font-inter font-medium bg-primary text-white dark:text-slate-50 px-4 py-2 rounded-md' onClick={themeSwitch}>
                         <img src={icon} alt="dark mode toggle" />
                     </button>
                 </div>
