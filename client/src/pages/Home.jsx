@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, FormField, Loader } from '../components';
-import { hero1, hero2, hero3, hero4, Udemy } from "../assets";
+import { happyFace, hero1, hero2, hero3, hero4, messenger, Udemy } from "../assets";
 import { heroText } from "../constants/heroText";
 import { benefits } from '../constants/benefits';
 import { engineerImages } from '../assets/engineer';
@@ -113,6 +113,15 @@ const Home = () => {
     return (
         <>
             <section className="relative overflow-hidden isolate mx-auto min-h-[100vh] flex justify-center align-center flex-col bg-slate-200 dark:bg-slate-900">
+                <div className='flex justify-between absolute bg-white w-[300px] p-10 right-[40%] top-[70%] shadow-2xl border-4 border-[#efefef]'>
+                    <div className='flex justify-center items-center'>
+                        <img src={happyFace} className="w-[50px]" alt="happy face" />
+                    </div>
+                    <div>
+                        <h4 className='font-bold text-2xl mb-2'>Asar Madif</h4>
+                        <p className='text-slate-600'>Nicely done!</p>
+                    </div>
+                </div>
                 <div className="min-w-[90rem] max-w-[50%] mr-auto ml-32">
                     <p className='uppercase text-slate-400 tracking-widest'>Provided by DALL-E</p>
                     <h1 className="flex justify-start gap-5 font-extrabold text-[#222328] dark:text-slate-100 text-[64px] text-left overflow-hidden">Create something <span className="changeTextWrapper text-[#4357FF] underline transition-all block animate-fadeText opacity-0"
@@ -125,7 +134,6 @@ const Home = () => {
                         <Link to="https://openai.com/research/dall-e" target="_blank" className='font-inter block max-w-full md:max-w-[14rem] text-center text-slate-800 tracking-wider bg-[#efefef] dark:bg-slate-800 dark:text-slate-100 py-4 px-10 rounded-full'>About DALL-E</Link>
                     </div>
                     <div>
-
                     </div>
                 </div>
                 <div className='absolute -z-10 w-full h-full clip-your-needful-style bg-slate-50 dark:bg-slate-900'></div>
@@ -178,6 +186,22 @@ const Home = () => {
                             Browse courses
                             <img src={Udemy} alt="udemy logo" className='block w-[100px]' />
                         </Link>
+                    </div>
+                </div>
+            </section>
+
+            <section className="max-w-7xl mx-auto mt-20">
+                <div className="max-w-7xl p-10 m-auto flex justify-between gap-10 bg-slate-100 rounded-2xl">
+                    <div className='flex gap-10 max-w-4xl justify-between'>
+                        <img src={messenger} className="w-16" alt="messenger icon" />
+                        <div className='flex flex-col gap-4'>
+                            <h4 className='font-bold text-2xl'>Come and join our group!</h4>
+                            <p>Join our group on Facebook to receive latest informations and get connected to awesome people!</p>
+                            <p className='text-slate-400 text-sm'>"I am so excited to be a part of this community! Thanks to all the people who have shared their tips, tricks, and DALL-E prompts. *twink" - Test User</p>
+                        </div>
+                    </div>
+                    <div className='flex justify-center items-center'>
+                        <Link to="https://www.facebook.com" className='font-inter block max-w-full md:max-w-[14rem] text-center font-bold bg-[#4357FF] dark:bg-primary text-white dark:text-slate-100 py-4 px-10 rounded-full tracking-wider'>Join</Link>
                     </div>
                 </div>
             </section>

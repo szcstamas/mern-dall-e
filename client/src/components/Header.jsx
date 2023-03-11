@@ -45,15 +45,15 @@ const Header = () => {
                 </Link>
                 <div className='flex justify-between items-center gap-10'>
                     <Link to="/create-post"
-                        className='flex items-start gap-1 font-inter text-slate-900 dark:text-white'>
+                        className='flex items-start gap-1 font-inter transition-colors hover:text-primary hover:dark:text-primary text-slate-900 dark:text-white'>
                         Create
                     </Link>
                     <Link to="/prompt-tips"
-                        className='font-inter text-slate-900 dark:text-white'>
+                        className='font-inter text-slate-900 dark:text-white transition-colors hover:text-primary hover:dark:text-primary'>
                         Prompt tips
                     </Link>
                     <Link to="https://openai.com/" target="_blank"
-                        className='font-inter text-slate-900 dark:text-white'>
+                        className='font-inter text-slate-900 dark:text-white transition-colors hover:text-primary hover:dark:text-primary'>
                         OpenAI
                     </Link>
                     <button className='font-inter font-medium bg-primary text-white dark:text-slate-50 px-4 py-2 rounded-md' onClick={themeSwitch}>

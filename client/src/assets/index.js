@@ -3,8 +3,8 @@ import downloadIcon from './download-image.svg';
 import generateIcon from './generate-image.svg';
 import starIcon from './star-image.svg';
 import shareIcon from './share-image.svg';
-import logoLight from './fantacity-logo-long.svg';
-import logoDark from './fantacity-logo-white.svg';
+import logoLight from './promptown-dark.svg';
+import logoDark from './promptown-light.svg';
 import moonIcon from "./moon-icon.svg";
 import sunIcon from "./sun-icon.svg";
 import preview from './preview.png';
@@ -20,6 +20,8 @@ import venom from "./engineer/carnage_venom.png";
 import futureCity from "./engineer/future_city.png";
 import mysticalDesign from "./engineer/mystical_design.png";
 import Udemy from "./engineer/udemy.svg";
+import happyFace from "./happy-face.svg";
+import messenger from "./messenger.svg";
 
 export {
   download,
@@ -43,5 +45,7 @@ export {
   venom,
   futureCity,
   mysticalDesign,
-  Udemy
+  Udemy,
+  happyFace,
+  messenger
 };
