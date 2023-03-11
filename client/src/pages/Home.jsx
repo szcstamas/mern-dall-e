@@ -1,10 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, FormField, Loader } from '../components';
-import { hero1, hero2, hero3, hero4 } from "../assets";
+import { hero1, hero2, hero3, hero4, Udemy } from "../assets";
 import { heroText } from "../constants/heroText";
 import { benefits } from '../constants/benefits';
 import { engineerImages } from '../assets/engineer';
+import Benefit from '../components/Benefit';
+import EngineerImage from '../components/EngineerImage';
 
 const RenderCards = ({ data, title }) => {
     if (data?.length > 0) {
@@ -120,7 +122,7 @@ const Home = () => {
                     <p className="my-10 dark:text-slate-50 text-[#666e75] text-[18px] max-w-[500px] md:max-w-full text-left">Welcome to the world of AI generated images! Shall we begin?</p>
                     <div className='flex gap-8 items-center'>
                         <Link to="/create-post" className='font-inter block max-w-full md:max-w-[14rem] text-center font-bold bg-[#4357FF] dark:bg-primary text-white dark:text-slate-100 py-4 px-10 rounded-full tracking-wider'>Explore</Link>
-                        <Link to="https://openai.com/research/dall-e" target="_blank" className='font-inter block max-w-full md:max-w-[14rem] text-center tracking-wider text-slate-700 bg-[#efefef] dark:bg-slate-800 text-white dark:text-slate-100 py-4 px-10 rounded-full'>About DALL-E</Link>
+                        <Link to="https://openai.com/research/dall-e" target="_blank" className='font-inter block max-w-full md:max-w-[14rem] text-center text-slate-800 tracking-wider bg-[#efefef] dark:bg-slate-800 dark:text-slate-100 py-4 px-10 rounded-full'>About DALL-E</Link>
                     </div>
                     <div>
 
@@ -137,20 +139,19 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="p-20 bg-slate-900 text-slate-100 dark:border-b-2 dark:border-t-2">
+            <section className="p-20 bg-slate-900 text-slate-100 dark:border-t-2">
                 <div className="max-w-7xl m-auto">
                     <div className='w-100 max-w-7xl flex justify-between gap-24'>
                         {benefits.map((benefit, index) => {
                             index++;
                             return (
-                                <div className='flex flex-1 flex-col flex-wrap gap-9 relative border-2 rounded-2xl p-10'>
-                                    <span className='absolute left-3 top-3 text-slate-300 opacity-50'>0{index}</span>
-                                    <img className='m-auto w-10 h-10 block' src={benefit.img} alt={benefit.name} />
-                                    <div>
-                                        <h4 className='text-center font-bold text-2xl mb-2'>{benefit.name}</h4>
-                                        <p className='text-center text-slate-400 text-sm'>{benefit.desc}</p>
-                                    </div>
-                                </div>
+                                <Benefit
+                                    index={index}
+                                    name={benefit.name}
+                                    img={benefit.img}
+                                    desc={benefit.desc}
+                                    key={index}
+                                />
                             )
                         })}
                     </div>
@@ -158,20 +159,25 @@ const Home = () => {
             </section>
 
             <section className='bg-slate-900 text-slate-100 min-h-[60vh] engineer-section'>
-                <div className="min-w-[90rem] max-w-7xl m-auto pt-20 pb-36 flex justify-between gap-10">
-                    <div className='w-1/2 relative'>
-                        {engineerImages.map((image) => {
+                <div className="min-w-[90rem] max-w-7xl m-auto pt-20 pb-36 flex justify-between gap-20">
+                    <div className='w-1/2 relative isolate'>
+                        {engineerImages.map((image, index) => {
                             return (
-                                <div className='engineer-image-box isolate absolute w-[300px] h-[400px] rounded-lg'>
-                                    <img className='w-full h-full relative object-cover z-[1] rounded-2xl' src={image} alt={image} />
-                                    <div className='white-background absolute w-[105%] h-[105%] rounded-3xl bg-gradient-to-b from-transparent via-transparent to-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-[50.5%] z-[0]'></div>
-                                </div>
+                                <EngineerImage
+                                    image={image}
+                                    key={index}
+                                />
                             )
                         })}
+                        <div className='-z-10 animate-changeColor absolute w-[1000px] h-[1000px] top-20 -left-1/2 bg-primary rounded-full'></div>
                     </div>
                     <div className='w-1/2'>
                         <h1 className='text-primary text-4xl font-bold mb-10'>Be a professional prompt engineer!</h1>
-                        <p className='text-slate-100 max-w-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, eveniet! Eum deleniti magnam modi praesentium? Ipsam a incidunt vero placeat.</p>
+                        <p className='text-slate-100 max-w-lg mb-10'>Want to know more about making AI generated images? You want to get your skills to a more professional level? <strong>Take part of high-level courses provided by Udemy!</strong></p>
+                        <Link to="https://www.udemy.com/topic/prompt-engineering/" target="_blank" className='font-inter flex gap-2 items-center justify-between max-w-full md:max-w-[50%] text-center font-bold bg-[#5624d0] dark:bg-primary text-white dark:text-slate-100 py-4 px-10 rounded-full tracking-wider'>
+                            Browse courses
+                            <img src={Udemy} alt="udemy logo" className='block w-[100px]' />
+                        </Link>
                     </div>
                 </div>
             </section>

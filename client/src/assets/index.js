@@ -19,6 +19,7 @@ import trustworthy from './benefits/trustworthy.svg';
 import venom from "./engineer/carnage_venom.png";
 import futureCity from "./engineer/future_city.png";
 import mysticalDesign from "./engineer/mystical_design.png";
+import Udemy from "./engineer/udemy.svg";
 
 export {
   download,
@@ -41,5 +42,6 @@ export {
   trustworthy,
   venom,
   futureCity,
-  mysticalDesign
+  mysticalDesign,
+  Udemy
 };
