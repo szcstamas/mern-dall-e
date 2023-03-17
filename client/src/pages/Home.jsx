@@ -186,7 +186,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section id="benefits" className="p-5 md:px-20 md:py-20 xl:px-0 bg-slate-900 text-slate-100 dark:border-t-2">
+            <section id="benefits" className="p-5 md:px-20 md:py-20 xl:px-0 bg-slate-900 dark:bg-slate-800 text-slate-100 dark:border-t-2">
                 <div className="max-w-7xl m-auto">
                     <motion.div
                         className='w-100 max-w-7xl flex justify-between gap-4 md:gap-6 lg:gap-12 flex-wrap'>
@@ -220,32 +220,56 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className='bg-slate-900 text-slate-100 min-h-[60vh] engineer-section overflow-hidden'>
+            <section className='bg-slate-900 dark:bg-slate-800 text-slate-100 min-h-[60vh] engineer-section overflow-hidden'>
                 <div className="min-w-[90rem] max-w-7xl m-auto pt-28 xl:pt-20 pb-36 flex justiy-start 2xl:justify-between gap-20 flex-col md:flex-row pr-60 lg:pr-0 xl:pr-12 2xl:pr-0">
-                    <div className='flex-[1_1_50%] w-full max-w-[35%] xl:max-w-full xl:w-1/2 relative isolate'>
+                    <motion.div
+                        initial={{ opacity: 0, transform: 'translateX(-50px)' }}
+                        whileInView={{ opacity: 1, transform: 'translateX(0px)' }}
+                        transition={{
+                            default: { ease: [0, 2, 0.5, 2] },
+                            delay: .25
+                        }}
+                        viewport={{ once: true }}
+                        className='flex-[1_1_50%] w-full max-w-[35%] xl:max-w-full xl:w-1/2 relative isolate'>
                         {engineerImages.map((image, index) => {
                             return (
                                 <EngineerImage
                                     image={image}
-                                    key={index}
+                                    key={index + 'engineerImage'}
                                 />
                             )
                         })}
                         <div className='-z-10 animate-changeColor absolute w-[1000px] h-[1000px] top-20 -left-1/2 bg-primary rounded-full'></div>
-                    </div>
-                    <div className='flex-[1_1_50%] z-10 md:w-auto xl:max-w-full xl:w-1/2'>
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, transform: 'translateX(50px)' }}
+                        whileInView={{ opacity: 1, transform: 'translateX(0px)' }}
+                        transition={{
+                            duration: .5,
+                            delay: .5
+                        }}
+                        viewport={{ once: true }}
+                        className='flex-[1_1_50%] z-10 md:w-auto xl:max-w-full xl:w-1/2'>
                         <h1 className='text-primary text-4xl font-bold mb-10 xl:max-w-full max-w-md'>Be a professional prompt engineer!</h1>
                         <p className='text-slate-100 max-w-lg mb-10'>Want to know more about making AI generated images? You want to get your skills to a more professional level? <strong>Take part of high-level courses provided by Udemy!</strong></p>
                         <Link to="https://www.udemy.com/topic/prompt-engineering/" target="_blank" className='font-inter flex gap-2 items-center justify-between max-w-full md:w-[55%] text-center font-bold bg-[#5624d0] dark:bg-primary text-white dark:text-slate-100 py-4 px-10 rounded-full tracking-wider border-white border-4 xl:border-0'>
                             Browse courses
                             <img src={Udemy} alt="udemy logo" className='block w-[100px]' />
                         </Link>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             <section className="max-w-7xl mx-auto mt-20 px-5 xl:p-0">
-                <div className="max-w-7xl p-10 m-auto flex justify-between gap-10 bg-slate-100 dark:bg-slate-900 rounded-2xl flex-col md:flex-row">
+                <motion.div
+                    initial={{ opacity: 0, transform: 'translateY(50px)' }}
+                    whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
+                    transition={{
+                        default: { ease: [0, 2, 0.5, 2] },
+                        duration: .5,
+                    }}
+                    viewport={{ once: true }}
+                    className="max-w-7xl p-10 m-auto flex justify-between gap-10 bg-slate-100 dark:bg-slate-800 rounded-2xl flex-col md:flex-row">
                     <div className='flex gap-10 max-w-4xl justify-between flex-col md:flex-row'>
                         <img src={messenger} className="w-16" alt="messenger icon" />
                         <div className='flex flex-col gap-4'>
@@ -257,13 +281,28 @@ const Home = () => {
                     <div className='flex justify-center items-center'>
                         <Link to="https://www.facebook.com" className='font-inter block max-w-full md:max-w-[14rem] text-center font-bold bg-[#4357FF] dark:bg-primary text-white dark:text-slate-100 py-4 px-10 rounded-full tracking-wider w-full md:w-auto'>Join</Link>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
             <section className="max-w-7xl mx-auto mt-20 pb-20 px-5 xl:px-0">
                 <div>
-                    <h2 className="font-extrabold text-[#222328] dark:text-slate-100 text-[32px]">The Community Showcase</h2>
-                    <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">Browse through a collection of imaginative and visually stunning images generated by DALL-E AI</p>
+                    <motion.h2
+                        initial={{ opacity: 0, transform: 'translateX(-25px)' }}
+                        whileInView={{ opacity: 1, transform: 'translateX(0px)' }}
+                        transition={{
+                            duration: .25,
+                        }}
+                        viewport={{ once: true }}
+                        className="font-extrabold text-[#222328] dark:text-slate-100 text-[32px]">The Community Showcase</motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, transform: 'translateX(-25px)' }}
+                        whileInView={{ opacity: 1, transform: 'translateX(0px)' }}
+                        transition={{
+                            duration: .25,
+                            delay: .5
+                        }}
+                        viewport={{ once: true }}
+                        className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">Browse through a collection of imaginative and visually stunning images generated by DALL-E AI</motion.p>
                 </div>
 
                 <div className="mt-16">

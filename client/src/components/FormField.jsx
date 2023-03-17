@@ -19,7 +19,7 @@ const FormField = ({ labelName, type, name, placeholder, value, handleChange, is
                 value={value}
                 onChange={handleChange}
                 required
-                className='bg-gray-200 dark:bg-slate-900 text-gray-900 text-sm rounded-lg focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full p-3'
+                className='bg-gray-200 dark:bg-slate-800 text-gray-900 text-sm rounded-lg focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full p-3'
             />
         </div>
     )
