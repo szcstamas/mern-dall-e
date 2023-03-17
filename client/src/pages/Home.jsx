@@ -180,9 +180,9 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="p-20 bg-slate-900 text-slate-100 dark:border-t-2">
+            <section className="p-5 md:p-20 bg-slate-900 text-slate-100 dark:border-t-2">
                 <div className="max-w-7xl m-auto">
-                    <div className='w-100 max-w-7xl flex justify-between gap-24'>
+                    <div className='w-100 max-w-7xl flex justify-between gap-4 md:gap-6 lg:gap-12 flex-wrap'>
                         {benefits.map((benefit, index) => {
                             index++;
                             return (
@@ -199,9 +199,9 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className='bg-slate-900 text-slate-100 min-h-[60vh] engineer-section'>
-                <div className="min-w-[90rem] max-w-7xl m-auto pt-20 pb-36 flex justify-between gap-20">
-                    <div className='w-1/2 relative isolate'>
+            <section className='bg-slate-900 text-slate-100 min-h-[60vh] engineer-section overflow-hidden'>
+                <div className="min-w-[90rem] max-w-7xl m-auto pt-28 xl:pt-20 pb-36 flex justiy-start 2xl:justify-between gap-20 flex-col md:flex-row pr-60 lg:pr-0 xl:pr-12 2xl:pr-0">
+                    <div className='flex-[1_1_50%] w-full max-w-[35%] xl:max-w-full xl:w-1/2 relative isolate'>
                         {engineerImages.map((image, index) => {
                             return (
                                 <EngineerImage
@@ -212,10 +212,10 @@ const Home = () => {
                         })}
                         <div className='-z-10 animate-changeColor absolute w-[1000px] h-[1000px] top-20 -left-1/2 bg-primary rounded-full'></div>
                     </div>
-                    <div className='w-1/2'>
-                        <h1 className='text-primary text-4xl font-bold mb-10'>Be a professional prompt engineer!</h1>
+                    <div className='flex-[1_1_50%] z-10 md:w-auto xl:max-w-full xl:w-1/2'>
+                        <h1 className='text-primary text-4xl font-bold mb-10 xl:max-w-full max-w-md'>Be a professional prompt engineer!</h1>
                         <p className='text-slate-100 max-w-lg mb-10'>Want to know more about making AI generated images? You want to get your skills to a more professional level? <strong>Take part of high-level courses provided by Udemy!</strong></p>
-                        <Link to="https://www.udemy.com/topic/prompt-engineering/" target="_blank" className='font-inter flex gap-2 items-center justify-between max-w-full md:max-w-[50%] text-center font-bold bg-[#5624d0] dark:bg-primary text-white dark:text-slate-100 py-4 px-10 rounded-full tracking-wider'>
+                        <Link to="https://www.udemy.com/topic/prompt-engineering/" target="_blank" className='font-inter flex gap-2 items-center justify-between max-w-full md:w-[55%] text-center font-bold bg-[#5624d0] dark:bg-primary text-white dark:text-slate-100 py-4 px-10 rounded-full tracking-wider border-white border-4 xl:border-0'>
                             Browse courses
                             <img src={Udemy} alt="udemy logo" className='block w-[100px]' />
                         </Link>
@@ -223,7 +223,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="max-w-7xl mx-auto mt-20">
+            <section className="max-w-7xl mx-auto mt-20 px-5 xl:p-0">
                 <div className="max-w-7xl p-10 m-auto flex justify-between gap-10 bg-slate-100 dark:bg-slate-900 rounded-2xl flex-col md:flex-row">
                     <div className='flex gap-10 max-w-4xl justify-between flex-col md:flex-row'>
                         <img src={messenger} className="w-16" alt="messenger icon" />

@@ -20,6 +20,26 @@
       clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0% 50%);
     }
 
+    @media screen and (max-width: 1300px) {
+      .engineer-section {
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0% 80%);
+      }
+    }
+
+    @media screen and (max-width: 560px) {
+      .engineer-image-box:nth-child(2) {
+        right: 0;
+        top: 35%;
+        animation-delay: 1s;
+      }
+  
+      .engineer-image-box:nth-child(3) {
+        left: 30%;
+        top: -25%;
+        animation-delay: 2s;
+      }
+    }
+
     .clip-your-needful-style {
         clip-path: polygon(0 0, 65% 0, 50% 101%, 0 100%);
         position: absolute;
