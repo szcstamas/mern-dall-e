@@ -4,6 +4,7 @@ import Loader from "./Loader";
 import Header from "./Header";
 import Footer from "./Footer";
 import MobileMenu from "./MobileMenu";
+import Blog from "./Blog";
 
 export {
     Card,
@@ -11,5 +12,6 @@ export {
     Loader,
     Header,
     Footer,
-    MobileMenu
+    MobileMenu,
+    Blog
 }
