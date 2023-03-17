@@ -59,7 +59,7 @@ const Header = () => {
                             )
                         })
                     }
-                    <button className='analog-button shadow-[#272727_4px_4px_0px] active:shadow-[#272727_0px_0px_0px] dark:shadow-[#ffffff_4px_4px_0px] dark:active:shadow-[#ffffff_0px_0px_0px] font-inter font-medium dark:text-slate-50 px-4 py-2 rounded-md' onClick={themeSwitch}>
+                    <button className='analog-button shadow-[#272727_4px_4px_0px] active:shadow-[#272727_0px_0px_0px] dark:shadow-[#ffffff_4px_4px_0px] dark:active:shadow-[#ffffff_0px_0px_0px] font-inter font-medium dark:text-slate-50 px-4 py-2 rounded-md border-2 border-[#272727] dark:border-white' onClick={themeSwitch}>
                         <img src={icon} alt="dark mode toggle" />
                     </button>
                 </div>

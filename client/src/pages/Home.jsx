@@ -78,6 +78,7 @@ const Home = () => {
 
     //changing images with useEffect - restarting of interval occurs when heroIndex is changed 
     useEffect(() => {
+        console.log("im running from home page!");
         //targeting bg img div
         const div = bgDiv.current;
         //targeting txt span
@@ -101,7 +102,7 @@ const Home = () => {
                 txt.classList.remove("animate-fadeText");
             }, 5000)
         }, 5000);
-        //clearing setInterval
+        //clearing setInterval for unmounting
         return () => clearInterval(interval);
     }, [heroIndex])
 
