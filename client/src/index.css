@@ -44,6 +44,7 @@
         clip-path: polygon(0 0, 65% 0, 50% 101%, 0 100%);
         position: absolute;
     }
+
     .clip-your-needful-style::after {
       content: '';
       position: absolute;
@@ -54,6 +55,18 @@
       background-color: #4357FF;
       opacity: 0;
       animation: slideRow 5s ease-in-out infinite;
+    }
+
+    @media screen and (max-width: 768px) {
+      .clip-your-needful-style::after {
+        bottom: 98%;
+      }
+    }
+
+    @media screen and (max-width: 1535px) {
+      .clip-your-needful-style {
+        clip-path: none;
+      }
     }
 
     @keyframes slideRow {

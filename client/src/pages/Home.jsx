@@ -39,7 +39,7 @@ const RenderCards = ({ data, title }) => {
                 }}
             >
                 {data.map((post) =>
-                    <SwiperSlide key={post._id + '_slide'}>
+                    <SwiperSlide key={post._id + '_slide'} className="cursor-grab">
                         <Card key={post._id} {...post} />
                     </SwiperSlide>
                 )}
@@ -144,8 +144,8 @@ const Home = () => {
 
     return (
         <>
-            <section className="relative overflow-hidden isolate mx-auto min-h-[100vh] flex justify-center align-center flex-col bg-slate-200 dark:bg-slate-900">
-                <div className='flex justify-between absolute bg-white dark:bg-slate-900 w-[300px] p-10 right-[40%] top-[70%] shadow-2xl border-4 border-[#efefef] dark:border-slate-700'>
+            <section className="relative overflow-hidden isolate 2xl:mx-auto min-h-[85vh] 2xl:min-h-[100vh] flex justify-center items-center md:gap-12 xl:gap-36 flex-col md:flex-row 2xl:flex-col pt-32 md:pt-0 bg-slate-200 dark:bg-slate-900 border-b-2 md:border-0">
+                {/* <div className='flex justify-between absolute bg-white dark:bg-slate-900 w-[300px] p-10 right-[40%] top-[70%] shadow-2xl border-4 border-[#efefef] dark:border-slate-700'>
                     <div className='flex justify-center items-center'>
                         <img src={happyFace} className="w-[50px]" alt="happy face" />
                     </div>
@@ -153,18 +153,21 @@ const Home = () => {
                         <h4 className='font-bold text-2xl mb-2 dark:text-slate-50'>Asar Madif</h4>
                         <p className='text-slate-600 dark:text-slate-50'>Nicely done!</p>
                     </div>
-                </div>
-                <div className="min-w-[90rem] max-w-[50%] mr-auto ml-32">
-                    <p className='uppercase text-slate-400 tracking-widest'>Provided by DALL-E</p>
-                    <h1 className="flex justify-start gap-5 font-extrabold text-[#222328] dark:text-slate-100 text-[64px] text-left overflow-hidden">Create something
-                        <span className="changeTextWrapper text-[#4357FF] underline transition-all block animate-fadeText opacity-0"
-                            ref={txtSpan}
-                        >{heroTextHomepage}</span>
+                </div> */}
+                <div className="2xl:min-w-[90rem] 2xl:max-w-[50%] 2xl:mr-auto ml-0 md:ml-10 xl:ml-10 2xl:ml-32 px-10 md:px-0">
+                    <p className='uppercase text-slate-400 tracking-widest mb-5 2xl:mb-0'>Provided by DALL-E</p>
+
+                    <h1 className="flex justify-start 2xl:gap-5 font-extrabold text-[#222328] dark:text-slate-100 text-[64px] text-left overflow-hidden leading-tight 2xl:leading-normal flex-wrap">Create something
+                        <div className='overflow-hidden'>
+                            <span className="changeTextWrapper text-[#4357FF] underline transition-all block animate-fadeText opacity-0"
+                                ref={txtSpan}
+                            >{heroTextHomepage}</span>
+                        </div>
                     </h1>
                     <p className="my-10 dark:text-slate-50 text-[#666e75] text-[18px] max-w-[500px] md:max-w-full text-left">Welcome to the world of AI generated images! Shall we begin?</p>
-                    <div className='flex gap-8 items-center'>
-                        <Link to="/create-post" className='font-inter block max-w-full md:max-w-[14rem] text-center font-bold bg-[#4357FF] dark:bg-primary text-white dark:text-slate-100 py-4 px-10 rounded-full tracking-wider'>Explore</Link>
-                        <Link to="https://openai.com/research/dall-e" target="_blank" className='font-inter block max-w-full md:max-w-[14rem] text-center text-slate-800 tracking-wider bg-[#efefef] dark:bg-slate-800 dark:text-slate-100 py-4 px-10 rounded-full'>About DALL-E</Link>
+                    <div className='flex gap-8 items-center flex-col md:flex-row'>
+                        <Link to="/create-post" className='font-inter block max-w-full md:max-w-[14rem] text-center font-bold bg-[#4357FF] dark:bg-primary text-white dark:text-slate-100 py-4 px-10 rounded-full tracking-wider w-full md:w-auto'>Explore</Link>
+                        <Link to="https://openai.com/research/dall-e" target="_blank" className='font-inter block max-w-full md:max-w-[14rem] text-center text-slate-800 tracking-wider bg-[#efefef] dark:bg-slate-800 dark:text-slate-100 py-4 px-10 rounded-full w-full md:w-auto'>About DALL-E</Link>
                     </div>
                     <div>
                     </div>
@@ -172,7 +175,7 @@ const Home = () => {
                 <div className='absolute -z-10 w-full h-full clip-your-needful-style bg-slate-50 dark:bg-slate-900'></div>
                 <div
                     ref={bgDiv}
-                    className="absolute -z-20 w-full h-full bg-no-repeat bg-right"
+                    className="2xl:absolute w-[100%] h-[400px] md:h-[500px] mt-10 md:mt-0 md:rounded-l-3xl bg-cover 2xl:bg-auto 2xl:-z-20 2xl:w-full 2xl:h-full bg-no-repeat bg-right block"
                     style={{
                         backgroundImage: `url(${heroImage})`
                     }}
@@ -180,7 +183,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="p-5 md:p-20 bg-slate-900 text-slate-100 dark:border-t-2">
+            <section className="p-5 md:px-20 md:py-20 xl:px-0 bg-slate-900 text-slate-100 dark:border-t-2">
                 <div className="max-w-7xl m-auto">
                     <div className='w-100 max-w-7xl flex justify-between gap-4 md:gap-6 lg:gap-12 flex-wrap'>
                         {benefits.map((benefit, index) => {
