@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { logoLight, logoDark, moonIcon, sunIcon } from "../assets";
+import MobileMenu from './MobileMenu';
 
 const Header = () => {
     const userTheme = localStorage.getItem("theme");
@@ -39,11 +40,11 @@ const Header = () => {
 
     return (
         <header className='fixed z-10 w-full bg-cover backdrop-blur-sm flex justify-between items-center bg-[#ffffffbb] dark:bg-[#0f172aab] border-b border-b-[#e6ebf4]'>
-            <nav className='w-full flex justify-between items-center sm:px-32 px-4 py-4 '>
+            <nav className='relative w-full flex justify-between items-center xl:px-32 px-4 py-4 '>
                 <Link to="/">
                     <img src={userTheme === "dark" ? logoDark : logo} alt="logo" className='w-28 object-contain' />
                 </Link>
-                <div className='flex justify-between items-center gap-10'>
+                <div className='hidden md:flex justify-between items-center gap-10 '>
                     <Link to="/create-post"
                         className='flex items-start gap-1 font-inter transition-colors hover:text-primary hover:dark:text-primary text-slate-900 dark:text-white'>
                         Create
@@ -60,6 +61,7 @@ const Header = () => {
                         <img src={icon} alt="dark mode toggle" />
                     </button>
                 </div>
+                <MobileMenu />
             </nav>
         </header>
     )

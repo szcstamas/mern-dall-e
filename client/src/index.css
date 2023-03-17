@@ -52,14 +52,14 @@
       width: 100%;
       bottom: 0;
       left: 0;
-      background-color: #4357FF;
+      background-color: var(--primary-color);
       opacity: 0;
       animation: slideRow 5s ease-in-out infinite;
     }
 
     @media screen and (max-width: 768px) {
       .clip-your-needful-style::after {
-        bottom: 98%;
+        bottom: 95%;
       }
     }
 
@@ -76,12 +76,18 @@
     }
  }
 
+ :root {
+  --primary-color: #4357FF;
+ }
+
 @media screen and (min-width: 480px) {
     .card:nth-child(7n + 1) {
         grid-column: auto/span 2;
         grid-row: auto/span 2;
     }
 }
+
+/* homepage image slider for community */
 
 .swiper-container {
   width: 480px;
@@ -99,6 +105,29 @@
   }
 }
 
+/* hamburger menu */
+
+.hamburger-menu {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  height: 1.25rem;
+  width: 2rem;
+  cursor: pointer;
+}
+.bar-top,
+.bar-bottom {
+  height: 2px;
+  border: 2px solid var(--primary-color);
+  background: var(--primary-color);
+  border-radius: 5px;
+  margin: 3px 0;
+  transform-origin: center;
+  transition: all 0.5s;
+}
+
+/* scrollbar */
+
 *::-webkit-scrollbar {
     width: 10px;
     background-color: #000;
@@ -106,7 +135,7 @@
 
 *::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: #4357FF;
+    background-color: var(--primary-color);
 }
 
 .prompt::-webkit-scrollbar {

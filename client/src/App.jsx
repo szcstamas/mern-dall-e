@@ -7,7 +7,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <main className='p-0 w-full bg-[#f9fafe] dark:bg-gray-800 min-h-[calc(100vh-(128px))]'>
+      <main className='pt-32 md:pt-0 w-full bg-[#f9fafe] dark:bg-gray-800 min-h-[calc(100vh-(128px))]'>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create-post" element={<CreatePost />} />

@@ -144,7 +144,7 @@ const Home = () => {
 
     return (
         <>
-            <section className="relative overflow-hidden isolate 2xl:mx-auto min-h-[85vh] 2xl:min-h-[100vh] flex justify-center items-center md:gap-12 xl:gap-36 flex-col md:flex-row 2xl:flex-col pt-32 md:pt-0 bg-slate-200 dark:bg-slate-900 border-b-2 md:border-0">
+            <section className="relative overflow-hidden isolate 2xl:mx-auto min-h-[85vh] 2xl:min-h-[100vh] flex justify-center items-center md:gap-12 xl:gap-36 flex-col md:flex-row 2xl:flex-col bg-slate-200 dark:bg-slate-900 border-b-2 md:border-0">
                 {/* <div className='flex justify-between absolute bg-white dark:bg-slate-900 w-[300px] p-10 right-[40%] top-[70%] shadow-2xl border-4 border-[#efefef] dark:border-slate-700'>
                     <div className='flex justify-center items-center'>
                         <img src={happyFace} className="w-[50px]" alt="happy face" />
@@ -156,8 +156,7 @@ const Home = () => {
                 </div> */}
                 <div className="2xl:min-w-[90rem] 2xl:max-w-[50%] 2xl:mr-auto ml-0 md:ml-10 xl:ml-10 2xl:ml-32 px-10 md:px-0">
                     <p className='uppercase text-slate-400 tracking-widest mb-5 2xl:mb-0'>Provided by DALL-E</p>
-
-                    <h1 className="flex justify-start 2xl:gap-5 font-extrabold text-[#222328] dark:text-slate-100 text-[64px] text-left overflow-hidden leading-tight 2xl:leading-normal flex-wrap">Create something
+                    <h1 className="flex justify-start 2xl:gap-5 font-extrabold text-[#222328] dark:text-slate-100 text-[42px] sm:text-[64px] text-left overflow-hidden leading-tight 2xl:leading-normal flex-wrap">Create something
                         <div className='overflow-hidden'>
                             <span className="changeTextWrapper text-[#4357FF] underline transition-all block animate-fadeText opacity-0"
                                 ref={txtSpan}
