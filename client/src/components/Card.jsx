@@ -4,14 +4,14 @@ import { downloadImage } from "../utils"
 
 const Card = ({ _id, name, prompt, photo }) => {
     return (
-        <figure className='relative rounded-xl cardContainer overflow-hidden'>
+        <figure className='relative rounded-xl cardContainer overflow-hidden flex'>
             <span className='cardDot absolute h-5 w-5 rounded-full top-5 right-5 bg-white border-2 border-white transition-[background_200ms]'></span>
             <img
-                className='cardContent w-full h-full object-cover'
+                className='cardContent flex-[0_1_100%] w-full h-full object-cover'
                 src={photo}
                 alt={prompt}
             />
-            <figcaption className='cardToolbar bg-slate-800'>
+            <figcaption className='cardToolbar absolute p-8 -bottom-[100%] w-full h-auto transition-all delay-100 bg-slate-800'>
                 <p className='text-white text-md text-sm'>{prompt}</p>
                 <div className='mt-5 flex justify-between items-center gap-2'>
                     <div className='flex items-center gap-2'>

@@ -165,34 +165,14 @@
     font-family: 'Inter', sans-serif;
   }
 
-  .cardContainer {
-    display: flex;
-    overflow: hidden;
-  }
-  .cardContainer .cardContent {
-    flex: 0 1 100%;
-  }
-  .cardContainer:hover .cardDot {
-    background-color: var(--primary-color);
-  }
-  .cardContainer .cardToolbar {
-    position: absolute;
-    padding: 2rem;
-    bottom: -100%;
-    width: 100%;
-    height: auto;
-    transition: all .5s ease-in-out;
-  }
-  .cardContainer:hover .cardToolbar {
-    bottom: 0;
-  }
+/* cards under community showcases on homepage  */
 
-/*   
-  .cardContainer > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  } */
+.cardContainer:hover .cardDot {
+  background-color: var(--primary-color);
+}
+.cardContainer:hover .cardToolbar {
+  bottom: 0;
+}
 
 /* loading animation */
   
