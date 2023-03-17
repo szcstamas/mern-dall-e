@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { logoLight, logoDark, moonIcon, sunIcon } from "../assets";
+import { headerLinks } from '../constants/headerLinks';
 import MobileMenu from './MobileMenu';
 
 const Header = () => {
@@ -45,23 +46,28 @@ const Header = () => {
                     <img src={userTheme === "dark" ? logoDark : logo} alt="logo" className='w-28 object-contain' />
                 </Link>
                 <div className='hidden md:flex justify-between items-center gap-10 '>
-                    <Link to="/create-post"
-                        className='flex items-start gap-1 font-inter transition-colors hover:text-primary hover:dark:text-primary text-slate-900 dark:text-white'>
-                        Create
-                    </Link>
-                    <Link to="/prompt-tips"
-                        className='font-inter text-slate-900 dark:text-white transition-colors hover:text-primary hover:dark:text-primary'>
-                        Prompt tips
-                    </Link>
-                    <Link to="https://openai.com/" target="_blank"
-                        className='font-inter text-slate-900 dark:text-white transition-colors hover:text-primary hover:dark:text-primary'>
-                        OpenAI
-                    </Link>
-                    <button className='font-inter font-medium bg-primary text-white dark:text-slate-50 px-4 py-2 rounded-md' onClick={themeSwitch}>
+                    {
+                        headerLinks.map((link) => {
+                            return (
+                                <Link
+                                    target={link.target ? "_blank" : null}
+                                    to={link.link}
+                                    key={link.txt + 'desktopHeaderLink'}
+                                    className='flex items-start gap-1 font-inter transition-colors hover:text-primary hover:dark:text-primary text-slate-900 dark:text-white'>
+                                    {link.txt}
+                                </Link>
+                            )
+                        })
+                    }
+                    <button className='analog-button font-inter font-medium dark:text-slate-50 px-4 py-2 rounded-md' onClick={themeSwitch}>
                         <img src={icon} alt="dark mode toggle" />
                     </button>
                 </div>
-                <MobileMenu />
+                <MobileMenu
+                    changeModeFunction={themeSwitch}
+                    modeIcon={icon}
+                    modeText={userTheme === "dark" ? "Light mode" : "Dark mode"}
+                />
             </nav>
         </header>
     )

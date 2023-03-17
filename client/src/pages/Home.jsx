@@ -8,6 +8,10 @@ import { engineerImages } from '../assets/engineer';
 import Benefit from '../components/Benefit';
 import EngineerImage from '../components/EngineerImage';
 
+//framer motion
+import { motion } from 'framer-motion';
+
+//swiper.js
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
@@ -182,22 +186,37 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="p-5 md:px-20 md:py-20 xl:px-0 bg-slate-900 text-slate-100 dark:border-t-2">
+            <section id="benefits" className="p-5 md:px-20 md:py-20 xl:px-0 bg-slate-900 text-slate-100 dark:border-t-2">
                 <div className="max-w-7xl m-auto">
-                    <div className='w-100 max-w-7xl flex justify-between gap-4 md:gap-6 lg:gap-12 flex-wrap'>
+                    <motion.div
+                        className='w-100 max-w-7xl flex justify-between gap-4 md:gap-6 lg:gap-12 flex-wrap'>
                         {benefits.map((benefit, index) => {
                             index++;
                             return (
-                                <Benefit
-                                    index={index}
-                                    name={benefit.name}
-                                    img={benefit.img}
-                                    desc={benefit.desc}
-                                    key={index}
-                                />
+                                <motion.div
+                                    initial={index % 2 ? { opacity: 0, transform: 'translateY(-50px)' } : { opacity: 0, transform: 'translateY(50px)' }}
+                                    whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
+                                    transition={{
+                                        default: { ease: [0, 0.71, 0.2, 1.01] },
+                                        scale: { type: "spring", damping: 5, stiffness: 100, restDelta: 0.001 },
+                                        duration: 1,
+                                        delay: (index / 2)
+                                    }}
+                                    viewport={{ once: true }}
+                                    key={index + 'benefitContainerOnHomepage'}
+                                    className="flex flex-1 flex-col flex-wrap gap-9 relative border-2 rounded-2xl p-10"
+                                >
+                                    <Benefit
+                                        index={index}
+                                        name={benefit.name}
+                                        img={benefit.img}
+                                        desc={benefit.desc}
+                                        key={index + 'benefitBoxOnHomepage'}
+                                    />
+                                </motion.div>
                             )
                         })}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
