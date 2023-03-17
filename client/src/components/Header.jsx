@@ -40,7 +40,7 @@ const Header = () => {
     }
 
     return (
-        <header className='fixed z-10 w-full bg-cover backdrop-blur-sm flex justify-between items-center bg-[#ffffffbb] dark:bg-[#0f172aab] border-b border-b-[#e6ebf4]'>
+        <header className='fixed z-10 w-full bg-cover backdrop-blur-sm flex justify-between items-center text-sm bg-[#ffffffbb] dark:bg-[#0f172aab] border-b border-b-[#e6ebf4]'>
             <nav className='relative w-full flex justify-between items-center xl:px-32 px-4 py-4 '>
                 <Link to="/">
                     <img src={userTheme === "dark" ? logoDark : logo} alt="logo" className='w-28 object-contain' />
